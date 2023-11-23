@@ -112,7 +112,7 @@ rpds-py
 scikit-build
 scikit-image
 scikit-learn==1.1.2
-scikit-learn-intelex==20230426.122314
+scikit-learn-intelex==2023.2.1
 scikit-plot
 scikit-rf
 scipy==1.11.3
