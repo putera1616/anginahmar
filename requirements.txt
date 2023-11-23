@@ -103,8 +103,6 @@ PyQt5-sip
 python-dateutil
 pytz
 PyWavelets
-pywin32
-pywinpty
 PyYAML
 pyzmq
 referencing
