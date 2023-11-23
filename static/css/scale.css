@@ -1,0 +1,7 @@
+html {
+  transform: scale(0.8);
+}
+html, body {
+  width: 125%;
+  height: 125%;
+}

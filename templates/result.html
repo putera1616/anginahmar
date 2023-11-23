@@ -1,0 +1,436 @@
+
+
+
+	<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+
+	<!-- Page Title -->
+	<title>AnginAhmar Care Information Page</title>
+
+	<!-- Compressed Styles -->
+  <link href="{{ url_for('static', filename='css/slides.min.css') }}?41331" rel="stylesheet" type="text/css">
+
+	<!-- Custom Styles -->
+	<!-- <link href="css/custom.css" rel="stylesheet" type="text/css"> -->
+
+	<!-- jQuery 3.3.1 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Compressed Scripts -->
+  <script src="{{ url_for('static', filename='js/slides.min.js') }}?41331" type="text/javascript"></script>
+
+	<!-- Custom Scripts -->
+	<!-- <script src="js/custom.js" type="text/javascript"></script> -->
+
+	<!-- Fonts and Material Icons -->
+	<link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
+  
+    <script async src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
+    
+</head>
+<style>
+
+    /* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply some basic styles to the form */
+.custom-form {
+  font-family: 'Segoe UI', sans-serif;
+    font-weight: 600; /* Semi Bold is often equivalent to 600 in font weight */
+        display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    
+}
+
+/* Define the two form columns */
+.form-column {
+    width: calc(50% - 10px); /* Adjust as needed to create equal-width columns */
+    margin-bottom: 20px;
+}
+
+/* Style form elements as needed */
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    color: black;
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00fff2fa;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .form-column {
+        width: 100%;
+    }
+}
+
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply basic styles to the container */
+#resultcontainer {
+    height: 130px;
+    width: 640px;
+    flex: 1;
+    align-items: center;
+    padding-bottom: 20px;
+  margin: auto;
+  width: 200px;
+  height: 100px;
+}
+
+#container {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+/* Style the heading */
+#container h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Style the risk percentage */
+#container p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff; /* Blue color for the percentage */
+}
+
+/* Style the stroke level */
+#container .low-risk {
+    color: #00cc00; /* Green color for low risk */
+}
+
+#container .mid-risk {
+    color: #ff9900; /* Orange color for moderate risk */
+}
+
+#container .high-risk {
+    color: #ff3300; /* Red color for high risk */
+}
+
+/* Style the progress bar */
+#container .progress {
+    margin-top: 20px;
+    height: 20px;
+    background-color: #ccc;
+    fill-opacity: 30%;
+    border-radius: 4px;
+}
+
+#container .progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+}
+
+#container .progress-bar-low {
+    background-color: #00cc00; /* Green color for low risk */
+}
+
+#container .progress-bar-mid {
+    background-color: #ff9900; /* Orange color for moderate risk */
+}
+
+#container .progress-bar-high {
+    background-color: #ff3300; /* Red color for high risk */
+}
+
+/* Style the percentage text inside the progress bar */
+#container h4 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #242424;
+}
+
+
+
+
+</style>
+
+<body class="slides chain simplifiedMobile animated">
+		
+<!-- SVG Library -->
+
+
+<!-- Navigation -->
+<nav class="side pole">
+  <div class="navigation">
+    <ul></ul>
+  </div>
+</nav>
+
+<!-- Panel Top #08 -->
+<nav class="panel top">
+  <div class="sections desktop">
+    <div class="left"><img src="{{ url_for('static', filename='img/gsmall.png') }}" style="width:82px;height:24px"></div>
+    <div class="center">
+      <ul class="menu uppercase">
+        <li><a href="/">Home</a></li>
+        <li><a href="/information">Information</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/predict">Predictor</a></li>
+        <li><a href="/admin">Login</a></li>
+
+      </ul>
+    </div>
+    <div class="right">
+      <ul class="menu trim">
+        <li></li>
+        <li></li>
+        <li class="cropRight"></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sections compact hidden">
+    <div class="left"><a href="https://designmodo.com/?u=3165" title="Slides Framework"><svg style="width:82px;height:24px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg></a></div>
+    <div class="right"><span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span></div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+
+
+
+
+<!-- Slide 1 (#14) -->
+<section class="slide fade-6 kenBurns">
+  <div class="content">
+    <div class="container">
+      <div class="wrap">
+        <div class="fix-12-12">
+          <ul class="flex left">
+            <li class="fix-7-12 fromBottomLeft">
+              <h1 class="ae-1"style="font-family: Futura, sans-serif; font-size: 50px; letter-spacing: -5px;   line-height: 80%; text-align: center;"><b>Stroke Risk Predictor</b></h1>
+              <p class="ae-1"style="text-align: center;">Assess your individual stroke risk with our comprehensive evaluation tool. This personalized report gives you a quantitative assessment of your risk level.</p>
+              <div class="ae-3" style="background-color: #ffffff;   border-radius: 10px;   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  border: 10px solid rgb(100, 190, 198);    padding-bottom: 20px;     padding-top: 20px;        " >
+              <div id="resultcontainer"></div>
+              <script>
+                // Ensure the script runs after the page has fully loaded
+                window.onload = function() {
+                  // Retrieve the stroke risk value from the Flask-rendered template
+                  var strokeRisk = {{ stroke_risk | safe }};
+                                    
+                  // Check if strokeRisk is a valid number
+                  if (strokeRisk && !isNaN(strokeRisk)) {
+                    var strokeRiskDecimal = strokeRisk / 100; // Convert to a decimal for the progress bar
+                    
+
+                    // Get the container element for the progress bar
+                    var container = document.getElementById('resultcontainer');
+              
+                    try {
+                      // Initialize the progress bar
+                      var bar = new ProgressBar.SemiCircle(container, {
+                        strokeWidth: 6,
+                        color: '#FFEA82',
+                        trailColor: '#eee',
+                        trailWidth: 1,
+                        easing: 'easeInOut',
+                        duration: 1400,
+                        svgStyle: null,
+                        text: {
+                          value: '',
+                          alignToBottom: false
+                        },
+                        from: { color: '#40E0D0' },
+                        to: { color: '#ED6A5A' },
+                        // Set default step function for all animate calls
+                        step: (state, bar) => {
+                          bar.path.setAttribute('stroke', state.color);
+                          var value = Math.round(bar.value() * 100);
+                          bar.setText(value ? value + '%' : '');
+                          bar.text.style.color = state.color;
+                        }
+                      });
+              
+                      // Apply styles to the progress bar text
+                      bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+                      bar.text.style.fontSize = '2rem';
+              
+                      // Animate the progress bar
+                      bar.animate(strokeRiskDecimal);
+                    } catch (e) {
+                      console.error('Error initializing ProgressBar:', e);
+                    }
+                  } else {
+                    console.error('Stroke risk data is not available or invalid');
+                  }
+                }
+              </script>
+              <br><br>
+              <div><b><h3 id="levelstroke" style="color:#3adfc6; text-align: center;"></h3></b></div>
+              <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var strokeRisk = {{ stroke_risk | safe }};
+            
+                    function getColorForRisk(strokeRisk) {
+                        // Colors
+                        var lowRiskColor = { r: 64, g: 224, b: 208 }; // #40E0D0
+                        var highRiskColor = { r: 237, g: 106, b: 90 }; // #ED6A5A
+            
+                        // Calculate the ratio
+                        var ratio = strokeRisk / 100;
+            
+                        // Linear interpolation between the low and high risk colors
+                        var color = {
+                            r: Math.round(lowRiskColor.r * (1 - ratio) + highRiskColor.r * ratio),
+                            g: Math.round(lowRiskColor.g * (1 - ratio) + highRiskColor.g * ratio),
+                            b: Math.round(lowRiskColor.b * (1 - ratio) + highRiskColor.b * ratio)
+                        };
+            
+                        // Convert to hex string
+                        return `rgb(${color.r}, ${color.g}, ${color.b})`;
+                    }
+            
+                    var strokeLevel, advice, adviceColor;
+            
+                    if (strokeRisk < 20) {
+                        strokeLevel = "LOW";
+                        advice = "Maintain a healthy lifestyle and regular check-ups.";
+                    } else if (strokeRisk <= 50) {
+                        strokeLevel = "MODERATE";
+                        advice = "Consider lifestyle changes and consult a doctor for risk assessment.";
+                    } else {
+                        strokeLevel = "HIGH";
+                        advice = "High risk: Seek immediate medical advice for preventive measures.";
+                    }
+            
+                    // Get color based on risk
+                    adviceColor = getColorForRisk(strokeRisk);
+            
+                    // Apply the color to your stroke level and advice elements
+                    var levelstrokeElement = document.getElementById('levelstroke');
+                    levelstrokeElement.innerText = strokeLevel;
+                    levelstrokeElement.style.color = adviceColor;
+            
+                    var adviceElement = document.getElementById('strokeadvice');
+                    adviceElement.innerText = advice;
+                    adviceElement.style.color = adviceColor;
+                });
+            </script>
+                <div><p id="strokeadvice" style=" text-align: center;"></p></div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var strokeRisk = {{ stroke_risk | safe }};
+            
+                        function getColorForRisk(strokeRisk) {
+                            // Colors
+                            var lowRiskColor = { r: 64, g: 224, b: 208 }; // #40E0D0
+                            var highRiskColor = { r: 237, g: 106, b: 90 }; // #ED6A5A
+            
+                            // Calculate the ratio
+                            var ratio = strokeRisk / 100;
+            
+                            // Linear interpolation between the low and high risk colors
+                            var color = {
+                                r: Math.round(lowRiskColor.r * (1 - ratio) + highRiskColor.r * ratio),
+                                g: Math.round(lowRiskColor.g * (1 - ratio) + highRiskColor.g * ratio),
+                                b: Math.round(lowRiskColor.b * (1 - ratio) + highRiskColor.b * ratio)
+                            };
+            
+                            // Convert to hex string
+                            return `rgb(${color.r}, ${color.g}, ${color.b})`;
+                        }
+            
+                        var advice, adviceColor;
+            
+                        if (strokeRisk < 20) {
+                            advice = "Maintain a healthy lifestyle and regular check-ups.";
+                        } else if (strokeRisk <= 50) {
+                            advice = "Consider lifestyle changes and consult a doctor for risk assessment.";
+                        } else {
+                            advice = "High risk: Seek immediate medical advice for preventive measures.";
+                        }
+            
+                        // Get color based on risk
+                        adviceColor = getColorForRisk(strokeRisk);
+            
+                        // Apply the color to your advice element
+                        var adviceElement = document.getElementById('strokeadvice');
+                        adviceElement.innerText = advice;
+                        adviceElement.style.color = adviceColor;
+                    });
+                </script>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background" style=" background-image: linear-gradient(to right, #262626, GRAY);"></div>
+<!--
+  <div class="background" style="background-image: url({{ url_for('static', filename='img/strokepredict.png') }})"></div>-->
+
+</section>
+
+
+
+
+<!-- Slide 3 (#95) -->
+
+
+
+ 
+
+<!-- Panel Bottom #15 -->
+
+<nav class="panel bottom lastSlideOnly">
+  <div class="sections">
+    <div class="center"><p>&copy; 2023 AnginAhmar Care. All Rights Reserved. </p>	
+    </div>
+  </div>
+</nav>
+
+<!-- Loading Progress Bar -->
+<div class="progress-bar blue"></div>
+		
+
+
+</body>
+</html>

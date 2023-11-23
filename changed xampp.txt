@@ -1,0 +1,14 @@
+
+
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+
+<VirtualHost *:80>
+    ServerName localhost
+
+    ProxyPass / http://127.0.0.1:5000/
+    ProxyPassReverse / http://127.0.0.1:5000/
+
+    ErrorLog "logs/flask_error.log"
+    CustomLog "logs/flask_access.log" common
+</VirtualHost>
